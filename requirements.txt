@@ -9,6 +9,3 @@ joblib
 fastapi
 uvicorn
 python-multipart
-BaseModel
-Field
-io
