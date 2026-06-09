@@ -1,0 +1,11 @@
+# IICG 514 - Taller Deployment de Modelos ML
+# Instala todas las dependencias con:
+#   pip install -r requirements.txt
+
+scikit-learn
+pandas
+numpy
+joblib
+fastapi
+uvicorn
+python-multipart
