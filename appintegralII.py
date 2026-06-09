@@ -33,7 +33,7 @@ try:
     model = load_model()
     st.success("Modelo cargado correctamente")
 except FileNotFoundError:
-    st.error("No se encontró 'modelo_mora.pkl'. Ejecuta primero 'modelo_base.py'.")
+    st.error("No se encontró 'modelo_mora.pkl'. Ejecuta primero 'appintegralII.py'.")
     st.stop()
 
 # Subir archivo CSV
@@ -47,7 +47,7 @@ if uploaded_file is not None:
     st.caption(f"Total de filas: {len(df)}")
 
     if st.button("🔮 Generar predicciones"):
-        FEATURES = ["edad", "antiguedad_meses", "factura_mensual_clp", "num_servicios", "reclamos_12m"]
+        FEATURES = ["edad", "antiguedad_meses", "factura_mensual_clp", "num_servicios", "reclamos_12m", "nps", "descuento_activo"]
 
         # Verificar columnas
         missing = [c for c in FEATURES if c not in df.columns]
@@ -71,8 +71,8 @@ if uploaded_file is not None:
         total_queda    = int((predictions == 0).sum())
         pct_riesgo     = round(total_abandona / len(df) * 100, 1)
 
-        col1.metric("🚨 En riesgo de abandono", total_abandona)
-        col2.metric("✅ Se quedan", total_queda)
+        col1.metric("🚨 En riesgo de Mora", total_abandona)
+        col2.metric("✅ No Mora", total_queda)
         col3.metric("% en riesgo", f"{pct_riesgo}%")
 
         # Botón para descargar resultados
