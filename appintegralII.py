@@ -55,8 +55,8 @@ if uploaded_file is not None:
             st.error(f"Faltan columnas en el CSV: {missing}")
             st.stop()
 
-        predictions   = model.predict(df[FEATURES])
-        probabilities = model.predict_proba(df[FEATURES])[:, 1]  # prob. de abandono
+        predictions   = model.predict(df.drop(columns=['mora_90d']))
+        probabilities = model.predict_proba(df.drop(columns=['mora_90d']))[:, 1]  # prob. de abandono
 
         df["Predicción"]         = predictions
         df["Prob. Abandono (%)"] = (probabilities * 100).round(1)
