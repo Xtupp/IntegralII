@@ -51,7 +51,7 @@ if uploaded_file is not None:
     st.caption(f"Total de filas: {len(df)}")
 
     if st.button("🔮 Generar predicciones"):
-        FEATURES = ["edad", "meses_contrato", "gasto_mensual", "num_productos", "soporte_tecnico", "nps"]
+        FEATURES = ["edad", "antiguedad_meses", "factura_mensual_clp", "num_servicios", "reclamos_12m", "nps"]
 
         # Verificar columnas
         missing = [c for c in FEATURES if c not in df.columns]
