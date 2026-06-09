@@ -31,13 +31,13 @@ st.info("""
 # Cargar el modelo guardado
 @st.cache_resource
 def load_model():
-    return joblib.load("modelo_churn.pkl")
+    return joblib.load("modelo_mora2.pkl")
 
 try:
     model = load_model()
     st.success("Modelo cargado correctamente")
 except FileNotFoundError:
-    st.error("No se encontró 'modelo_churn.pkl'. Ejecuta primero 'modelo_base.py'.")
+    st.error("No se encontró 'modelo_mora2.pkl'. Ejecuta primero 'modelo_base.py'.")
     st.stop()
 
 # Subir archivo CSV
