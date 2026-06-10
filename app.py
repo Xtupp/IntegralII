@@ -2,16 +2,9 @@
 IICG 514 - Business Intelligence | Universidad de Valparaíso
 Predicción de Riesgo de Morosidad en ConecTel S.A.
 ------------------------------------------------------
-App web con Streamlit
-
 Para ejecutar localmente:
     pip install streamlit joblib pandas scikit-learn
     streamlit app.py
-
-Para publicar en la web (gratis):
-    1. Sube este archivo + modelo_churn.pkl + requirements.txt a GitHub
-    2. Ve a https://share.streamlit.io
-    3. Conecta tu repositorio y despliega siguiendo las instrucciones
 """
 
 import streamlit as st
@@ -25,7 +18,7 @@ st.markdown("Sube un archivo CSV con datos de clientes para predecir si van a ab
 
 st.info("""
 **Columnas requeridas en el CSV:**
-"edad", "antiguedad_meses", "factura_mensual_clp", "num_servicios", "reclamos_12m", "nps"
+"edad", "tipo_contrato", "antiguedad_meses", "plan", "tiene_internet", "velocidad_mbps", "tiene_tv", "tiene_linea_movil", "num_servicios", "ratio_factura_ingreso", "dias_mora_hist", "indice_conflictividad", "nps", "descuento_activo", "meses_sin_reajuste", "region_Araucanía", "region_Atacama", "region_Biobío", "region_Coquimbo", "region_Los Lagos", "region_Maule", "region_Metropolitana", "region_O'Higgins", "region_Valparaíso", "metodo_pago_Débito automático", "metodo_pago_Efectivo", "metodo_pago_Transferencia", "metodo_pago_WebPay"
 """)
 
 # Cargar el modelo guardado
